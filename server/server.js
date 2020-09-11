@@ -2,11 +2,12 @@ require('dotenv').config()
 const db = require('./db/index')
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.use(express.json())
-const cors = require('cors')
 
+const cors = require('cors')
 app.use(cors())
+
 app.get('/restaurants', async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM restaurants')
