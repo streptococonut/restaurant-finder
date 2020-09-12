@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useContext } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
+import SimpleExample from '../LeafletMap'
 
 const RestaurantList = (props) => {
     const { restaurant, setRestaurant } = useContext(RestaurantContext)
@@ -23,12 +24,12 @@ const RestaurantList = (props) => {
                 <table className="table table-hover table-dark">
                 <thead>
                     <tr className="bg-primary">
-                        <td scope="col">Restaurant</td>
-                        <td scope="col">Location</td>
-                        <td scope="col">Description</td>
-                        <td scope="col">Map</td>
-                        <td scope="col">Edit</td>
-                        <td scope="col">Delete</td>
+                        <th scope="col">Restaurant</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Map</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +41,7 @@ const RestaurantList = (props) => {
                                     <td>{el.name}</td>
                                     <td>{el.location}</td>
                                     <td>{el.description}</td>
-                                    <td>Map</td>
+                                    <td width="1000px"><SimpleExample/></td>
                                     <td><button className="btn btn-warning">Update</button></td>
                                     <td><button className="btn btn-danger">Delete</button></td>
                                 </tr>
