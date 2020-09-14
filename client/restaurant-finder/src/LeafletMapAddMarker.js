@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
+import AddRestaurant from './components/AddRestaurant';
 
 //fix missing marker icon
 {delete L.Icon.Default.prototype._getIconUrl;
@@ -11,7 +12,7 @@ import L from 'leaflet'
     shadowUrl: require("leaflet/dist/images/marker-shadow.png")
   });}
 
-class LeafletMap extends React.Component {
+class LeafletMapAddMarker extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -23,9 +24,19 @@ class LeafletMap extends React.Component {
     }
   }
 
+  addMarker = (e) => {
+    let {marker} = this.state
+    marker = [e.latlng]
+    this.setState({marker})
+    
+  
+  }
+
   render() {
     const position = [this.state.lat, this.state.lng];
+    
     return (
+      <div>
       <Map center={position} zoom={this.state.zoom}
       onclick={this.addMarker}
       >
@@ -33,13 +44,27 @@ class LeafletMap extends React.Component {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
+      
+      {this.state.marker.map((position) => 
+         <div>
+          <Marker key={`marker-${position}`} position={position}>
+          <Popup>
+            <span>Popup</span>
+          </Popup>
+          </Marker>
+          
+        </div>
+        )}  
 
 
       </Map>
+      
+      
+      </div>
     );
   }
 }
 
 
 
-export default LeafletMap
+export default LeafletMapAddMarker

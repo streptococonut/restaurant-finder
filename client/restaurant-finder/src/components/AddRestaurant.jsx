@@ -1,14 +1,18 @@
 import React, { Component , useContext, useState } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
-
+import LeafletMapAddMarker from '../LeafletMapAddMarker'
+import '../style.css'
+import { marker } from 'leaflet'
 
 const AddRestaurant = () => {
         const {addRestaurantToUI} = useContext(RestaurantContext)
         const [name, setName] = useState("")
         const [location, setLocation] = useState("")
         const [description, setDescription] = useState("")
-        
+        const [latlng, setLatlng] = useState([])
+
+
         const handleSubmit = async (e) =>{
             e.preventDefault()
             try{
@@ -17,7 +21,10 @@ const AddRestaurant = () => {
                     location: location,
                     description: description
                 })
-                
+              //adding marker to markers array
+                //setLatlng(this.this.props.data.marker)
+                //setLatlng(e.LeafletMapAddMarker.marker)
+                console.log(latlng)
                 console.log(response)
                 addRestaurantToUI(response.data.restaurant)
             }catch(err){
@@ -44,8 +51,12 @@ const AddRestaurant = () => {
                 <button onClick={handleSubmit} type="submit" className="btn btn-primary" >Add</button>
                 </div>
                 </div>
-            
-
+                <br/>
+                <div className="leaflet">
+                <LeafletMapAddMarker />
+                
+                </div>
+                
             
             </form>
         </div>
