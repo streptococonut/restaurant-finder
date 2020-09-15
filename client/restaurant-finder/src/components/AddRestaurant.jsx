@@ -1,17 +1,38 @@
 import React, { Component , useContext, useState } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
-import LeafletMapAddMarker from '../LeafletMapAddMarker'
 import '../style.css'
-import { marker } from 'leaflet'
+import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
+import L, { marker } from 'leaflet'
 
-const AddRestaurant = () => {
+
+
+//fix missing marker icon
+{delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+    iconUrl: require("leaflet/dist/images/marker-icon.png"),
+    shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+  });}
+
+
+
+const AddRestaurant = (props) => {
+    const state = {
+        //marker: [],
+        //markers: [],
+        lat: 52.2297,
+        lng: 21.0122,
+        zoom: 13
+      }
         const {addRestaurantToUI} = useContext(RestaurantContext)
+          
         const [name, setName] = useState("")
         const [location, setLocation] = useState("")
         const [description, setDescription] = useState("")
-        const [latlng, setLatlng] = useState([])
-
+        const position = [state.lat, state.lng];
+        //const [latlng, setLatlng] = useState([])
+        let [marker, setMarker] = useState([])
 
         const handleSubmit = async (e) =>{
             e.preventDefault()
@@ -21,16 +42,22 @@ const AddRestaurant = () => {
                     location: location,
                     description: description
                 })
-              //adding marker to markers array
-                //setLatlng(this.this.props.data.marker)
-                //setLatlng(e.LeafletMapAddMarker.marker)
-                console.log(latlng)
+              
+                //console.log(marker)
                 console.log(response)
                 addRestaurantToUI(response.data.restaurant)
             }catch(err){
 
             }
         }
+        //from leafletmapaddmarker
+        
+        const addMarker = (e) => {    
+             
+            let latlng = [e.latlng]
+            setMarker(latlng)
+            
+          }
     return(
         
         <div className="mb-4 container">
@@ -52,8 +79,25 @@ const AddRestaurant = () => {
                 </div>
                 </div>
                 <br/>
+        
                 <div className="leaflet">
-                <LeafletMapAddMarker />
+                <Map center={position} zoom={state.zoom}
+      onclick={addMarker}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+      
+        {marker.map((position) => 
+         
+          <Marker key={`marker-${position}`} position={position}>
+          <Popup>
+            <span>Popup</span>
+          </Popup>
+          </Marker>
+        )}
+        </Map> 
                 
                 </div>
                 

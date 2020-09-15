@@ -6,9 +6,11 @@ import DetailPage from './routes/DetailPage'
 import UpdatePage from './routes/UpdatePage'
 import { RestaurantContextProvider } from './RestaurantContext'
 import AddRestPage from './routes/AddRestPage'
+
 class App extends React.Component {
     render(){
         return(
+          
           <RestaurantContextProvider>
           <div>
               <Router>
@@ -21,7 +23,7 @@ class App extends React.Component {
               </Router>
             </div>
           </RestaurantContextProvider>
-            
+          
         )
     }
 }
