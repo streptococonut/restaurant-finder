@@ -33,8 +33,8 @@ app.get('/restaurants/:id', async (req, res) => {
 
 app.post('/restaurants', async (req, res) => {
     try {
-        const result = await db.query('INSERT INTO restaurants (name, location, description) VALUES ($1, $2, $3) returning *',
-        [req.body.name, req.body.location, req.body.description])
+        const result = await db.query('INSERT INTO restaurants (name, location, description, marker) VALUES ($1, $2, $3, $4) returning *',
+        [req.body.name, req.body.location, req.body.description, req.body.marker])
         res.status(200).json({
             restaurant: result.rows[0]
 
@@ -46,7 +46,7 @@ app.post('/restaurants', async (req, res) => {
 
 app.put('/restaurants/:id', async (req, res) => {
     try {
-        const result = await db.query('UPDATE restaurants SET name=$1, location=$2, description=$3 WHERE id=$4 returning *', [req.body.name, req.body.location, req.body.description, req.params.id])
+        const result = await db.query('UPDATE restaurants SET name=$1, location=$2, description=$3, marker=$4 WHERE id=$5 returning *', [req.body.name, req.body.location, req.body.description, req.body.marker, req.params.id])
         res.status(200).json({
             restaurant: result.rows[0]
         })

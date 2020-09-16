@@ -4,7 +4,7 @@ import { RestaurantContext } from '../RestaurantContext'
 import '../style.css'
 import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
 import L, { marker } from 'leaflet'
-
+import {useHistory} from 'react-router-dom'
 
 
 //fix missing marker icon
@@ -23,7 +23,7 @@ const AddRestaurant = (props) => {
         //markers: [],
         lat: 52.2297,
         lng: 21.0122,
-        zoom: 13
+        zoom: 6
       }
         const {addRestaurantToUI} = useContext(RestaurantContext)
           
@@ -33,19 +33,24 @@ const AddRestaurant = (props) => {
         const position = [state.lat, state.lng];
         //const [latlng, setLatlng] = useState([])
         let [marker, setMarker] = useState([])
-
+        let history = useHistory();
         const handleSubmit = async (e) =>{
             e.preventDefault()
+
+            console.log(marker[0])
             try{
                 const response = await RestaurantFinder.post('/', {
                     name: name,
                     location: location,
-                    description: description
+                    description: description,
+                    //added marker (latlng)
+                    marker: marker[0]
                 })
               
-                //console.log(marker)
+                
                 console.log(response)
                 addRestaurantToUI(response.data.restaurant)
+                history.push("/")
             }catch(err){
 
             }
@@ -56,7 +61,7 @@ const AddRestaurant = (props) => {
              
             let latlng = [e.latlng]
             setMarker(latlng)
-            
+            console.log(marker)
           }
     return(
         
@@ -78,9 +83,10 @@ const AddRestaurant = (props) => {
                 <button onClick={handleSubmit} type="submit" className="btn btn-primary" >Add</button>
                 </div>
                 </div>
+                </form>
                 <br/>
         
-                <div className="leaflet">
+                <div style={{width:"100%", height:"100%"}}className="leaflet">
                 <Map center={position} zoom={state.zoom}
       onclick={addMarker}
       >
@@ -102,7 +108,7 @@ const AddRestaurant = (props) => {
                 </div>
                 
             
-            </form>
+            
         </div>
         )
     

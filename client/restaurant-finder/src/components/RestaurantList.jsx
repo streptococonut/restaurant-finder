@@ -43,7 +43,7 @@ const RestaurantList = (props) => {
                                     <td>{el.name}</td>
                                     <td>{el.location}</td>
                                     <td>{el.description}</td>
-                                    <td width="1000px"><LeafletMap/></td>
+                                    <td width="1000px"><LeafletMap position={el.marker}/></td>
                                     <td><button className="btn btn-warning">Update</button></td>
                                     <td><button className="btn btn-danger">Delete</button></td>
                                 </tr>
@@ -58,4 +58,5 @@ const RestaurantList = (props) => {
 
     
 }
+
 export default RestaurantList

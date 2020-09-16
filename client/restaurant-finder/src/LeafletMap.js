@@ -15,31 +15,40 @@ class LeafletMap extends React.Component {
   constructor() {
     super()
     this.state = {
-      marker: [],
-      markers: [],
       lat: 52.2297,
       lng: 21.0122,
-      zoom: 13
+      zoomBig: 13,
+      zoomSmall: 5
     }
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng];
+    const initPosition = [this.state.lat, this.state.lng];
     return (
-      <Map center={position} zoom={this.state.zoom}
-      onclick={this.addMarker}
+      
+      <Map center={this.props.position ? [this.props.position.lat, this.props.position.lng] : initPosition} zoom={this.props.position ? this.state.zoomBig : this.state.zoomSmall}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
+        
 
+        {this.props.position &&
+        <Marker position={ [this.props.position.lat, this.props.position.lng]}>
+        <Popup>
+        <span>Popup</span>
+        </Popup>
+        </Marker>}
 
-      </Map>
+          
+        
+ 
+</Map>
     );
   }
 }
-
-
+  
+//key={`marker-${this.props.position}`}
 
 export default LeafletMap
