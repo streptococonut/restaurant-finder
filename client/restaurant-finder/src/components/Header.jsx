@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
+import {useHistory} from 'react-router-dom'
 
-class Header extends Component {
-    render(){
+const Header = () => {
+        let history = useHistory()
+        const handleClick = (e) => {
+            history.push("/")
+        }
         return(
-            <h1 className="font-weight-light display-1 text-center">Restaurant finder</h1>
+            <div style={{cursor:"pointer"}} className="box" onClick={handleClick}>
+                <h1 className="font-weight-light display-1 text-center ">Restaurant finder</h1>
+            </div>
+            
         )
-    }
+    
 }
 export default Header

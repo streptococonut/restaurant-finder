@@ -1,5 +1,11 @@
 .leaflet-container {
   height: 300px;
-  width: 50%;
+  width: 100%;
+  margin: auto;
+}
+
+.leaflet-component {
+  height: 300px;
+  width: 75%;
   margin: auto;
 }

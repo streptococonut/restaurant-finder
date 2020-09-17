@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
-import SimpleExample from '../LeafletMap'
-class UpdatePage extends Component {
-    render(){
+import React from 'react'
+import Header from '../components/Header'
+import UpdateComponent from '../components/UpdateComponent'
+
+const UpdatePage = () => {
+   
+    
+        
         return(
-            <div>
-                UpdatePage
-                <SimpleExample/>
+            <div className="container">
+                <Header/>
+                <UpdateComponent/>
+                
             </div>
         )
-    }
 }
 
 export default UpdatePage
