@@ -3,10 +3,15 @@ const db = require('./db/index')
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const path = require("path")
 app.use(express.json())
 
 const cors = require('cors')
 app.use(cors())
+
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "client/restaurant-finder/build")))
+}
 
 app.get('/restaurants', async (req, res) => {
     try {
@@ -67,6 +72,9 @@ app.delete('/restaurants/:id', async (req, res) => {
     }
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/restaurant-finder/build/index.html"))
+})
 
 
 
