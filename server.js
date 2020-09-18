@@ -10,7 +10,7 @@ const cors = require('cors')
 app.use(cors())
 
 if (process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, "client/restaurant-finder/build")))
+    app.use(express.static(path.join(__dirname, "client/build")))
 }
 
 app.get('/restaurants', async (req, res) => {
@@ -72,9 +72,9 @@ app.delete('/restaurants/:id', async (req, res) => {
     }
 })
 
-//app.get("*", (req, res) => {
- //   res.sendFile(path.join(__dirname, "client/restaurant-finder/build/static/index.html"))
-//})
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/static/index.html"))
+})
 
 
 
