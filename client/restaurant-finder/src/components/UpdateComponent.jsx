@@ -61,7 +61,7 @@ const UpdateComponent = (props) => {
                     
                     marker: marker[0]
                 })
-                //addRestaurantToUI(response.data.restaurant)
+                
                 history.push("/")
             }catch(error){
                 console.log(error)
@@ -92,7 +92,7 @@ const UpdateComponent = (props) => {
                 <input value={description} onChange={e => setDescription(e.target.value)} type="text" className="form-control" placeholder="Description"/>
                 </div>
                 <div>
-                <button onClick={handleSubmit} type="submit" className="btn btn-primary" >Add</button>
+                <button onClick={handleSubmit} type="submit" className="btn btn-outline-warning" ><b>Update</b></button>
                 </div>
                 </div>
                 </form>

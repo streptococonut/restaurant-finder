@@ -34,8 +34,6 @@ const AddRestaurant = (props) => {
         let history = useHistory();
         const handleSubmit = async (e) =>{
             e.preventDefault()
-
-            console.log(marker[0])
             try{
                 const response = await RestaurantFinder.post('/', {
                     name: name,
@@ -59,7 +57,6 @@ const AddRestaurant = (props) => {
              
             let latlng = [e.latlng]
             setMarker(latlng)
-            console.log(marker)
           }
     return(
         
@@ -72,13 +69,13 @@ const AddRestaurant = (props) => {
                         
                 </div>
                 <div className="col">
-                    <input value={location} onChange={e => setLocation(e.target.value)} type="text" className="form-control" placeholder="Location"/>
+                    <input value={location} onChange={e => setLocation(e.target.value)} type="text" className="form-control" placeholder="City, adress"/>
                 </div>
                 <div className="col">
                 <input value={description} onChange={e => setDescription(e.target.value)} type="text" className="form-control" placeholder="Description"/>
                 </div>
                 <div>
-                <button onClick={handleSubmit} type="submit" className="btn btn-primary">Add</button>
+                <button onClick={handleSubmit} type="submit" className="btn btn-outline-primary"><b>Add</b></button>
                 </div>
                 </div>
                 </form>
