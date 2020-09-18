@@ -1,5 +1,4 @@
-import React, { Component, useContext } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useContext } from 'react'
 import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import { RestaurantContext } from './RestaurantContext'
@@ -51,16 +50,11 @@ const LeafletMap = (props) =>  {
         <span>{`${props.name}, ${props.location}`}</span>
         
         </Popup>
-        </Marker>}
-
-          
-        
+        </Marker>}    
  
 </Map>
     );
   
 }
-  
-//key={`marker-${this.props.position}`}
 
 export default LeafletMap

@@ -1,9 +1,9 @@
-import React, { Component , useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
 import '../style.css'
 import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
-import L, { marker } from 'leaflet'
+import L from 'leaflet'
 import {useHistory} from 'react-router-dom'
 
 
@@ -19,8 +19,6 @@ import {useHistory} from 'react-router-dom'
 
 const AddRestaurant = (props) => {
     const state = {
-        //marker: [],
-        //markers: [],
         lat: 52.2297,
         lng: 21.0122,
         zoom: 6

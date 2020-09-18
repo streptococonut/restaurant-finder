@@ -1,11 +1,11 @@
-import React, { Component, useEffect, useContext } from 'react'
+import React, {  useEffect, useContext } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
 
 import LeafletMap from '../LeafletMap'
 import { useHistory } from 'react-router-dom'
 
-const RestaurantList = (props) => {
+const RestaurantList = () => {
     const { restaurant, setRestaurant } = useContext(RestaurantContext)
     let history = useHistory()
     useEffect(() => {
@@ -36,7 +36,7 @@ const RestaurantList = (props) => {
         
     }
        
-            return( //ułożenie
+            return(
                 
                 <div className="d-flex justify-content-center">     
                 <div style={{margin:"2px"}}className="d-flex flex-column w-75 flex-align-stretch">
@@ -44,8 +44,7 @@ const RestaurantList = (props) => {
                         restaurant.map(el => {
                             return(
                                 
-                                //karta
-                                //zawartosc
+                                
                                 <div style={{marginTop:"2px", minHeight:"300px"}} className="card border-primary bg-transparent" key={el.id}>
                                 <div className="card-body pl-1 pr-2 pt-2 pb-2 d-flex flex-row">
                                     

@@ -1,8 +1,7 @@
-import React, { Component, useContext } from 'react'
+import React from 'react'
 import Header from '../components/Header'
 import RestaurantList from '../components/RestaurantList'
 import {useHistory} from 'react-router-dom'
-import { RestaurantContext } from '../RestaurantContext'
 import LeafletMap from '../LeafletMap'
 
 const Home = () => {

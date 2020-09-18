@@ -1,9 +1,8 @@
-import React, { Component , useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
-import { RestaurantContext } from '../RestaurantContext'
 import '../style.css'
 import { Map , TileLayer, Marker, Popup } from 'react-leaflet'
-import L, { marker } from 'leaflet'
+import L from 'leaflet'
 import {useHistory, useParams} from 'react-router-dom'
 
 //fix missing marker icon
@@ -23,7 +22,6 @@ const UpdateComponent = (props) => {
         zoom: 6
       }
         const { id } = useParams()
-        const {addRestaurantToUI} = useContext(RestaurantContext)
         const [name, setName] = useState("")
         const [location, setLocation] = useState("")
         const [description, setDescription] = useState("")
