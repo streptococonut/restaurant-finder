@@ -8,7 +8,7 @@ const Header = () => {
         }
         return(
             <div style={{cursor:"pointer"}} onClick={handleClick}>
-                <h1 style={{color:"snow"}} className="font-weight-light display-3 text-center bg-dark">Restaurant finder</h1>
+                <h1 style={{color:"white"}} className="font-weight-light display-3 text-center bg-dark">Restaurant Finder</h1>
             </div>
             
         )
