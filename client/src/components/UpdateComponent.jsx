@@ -92,7 +92,7 @@ const UpdateComponent = (props) => {
                 <input value={description} onChange={e => setDescription(e.target.value)} type="text" className="form-control" placeholder="Description"/>
                 </div>
                 <div style={{width:"10%", minWidth:"100px"}}> 
-                <button onClick={handleSubmit} type="submit" id="mybtn-upd" style={{width:"100%", color:"white"}} className="btn btn-outline-warning" ><b>Update</b></button>
+                <button onClick={handleSubmit} type="submit" id="mybtn-upd" style={{width:"100%", color:"#49525a"}} className="btn btn-outline-warning" ><b>Update</b></button>
                 </div>
                 </div>
                 </form>

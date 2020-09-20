@@ -6,7 +6,8 @@ const PORT = process.env.PORT || 3001;
 const path = require("path")
 app.use(express.json())
 
-const cors = require('cors')
+const cors = require('cors');
+const { join } = require('path');
 app.use(cors())
 
 if (process.env.NODE_ENV === "production"){
@@ -71,8 +72,6 @@ app.delete('/restaurants/:id', async (req, res) => {
         console.log(error)
     }
 })
-
-
 
 
 

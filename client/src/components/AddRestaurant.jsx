@@ -10,9 +10,9 @@ import {useHistory} from 'react-router-dom'
 //fix missing marker icon
 {delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-    iconUrl: require("leaflet/dist/images/marker-icon.png"),
-    shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+    iconRetinaUrl: require("../../node_modules/leaflet/dist/images/marker-icon-2x.png"),
+    iconUrl: require("../../node_modules/leaflet/dist/images/marker-icon.png"),
+    shadowUrl: require("../../node_modules/leaflet/dist/images/marker-shadow.png")
   });}
 
 
@@ -48,7 +48,7 @@ const AddRestaurant = (props) => {
                 addRestaurantToUI(response.data.restaurant)
                 history.push("/")
             }catch(err){
-
+              console.log(err)
             }
         }
         //from leafletmapaddmarker
@@ -81,7 +81,7 @@ const AddRestaurant = (props) => {
                 </form>
                 <br/>
         
-                <div id="lf-select" className="leaflet">
+                <div id="lf-select" >
                 <Map center={position} zoom={state.zoom}
       onclick={addMarker}
       >
@@ -93,9 +93,7 @@ const AddRestaurant = (props) => {
         {marker.map((position) => 
          
           <Marker key={`marker-${position}`} position={position}>
-          <Popup>
-            <span>Popup</span>
-          </Popup>
+          
           </Marker>
         )}
         </Map> 

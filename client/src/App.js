@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from "./routes/Home"
 import DetailPage from './routes/DetailPage'
 import UpdatePage from './routes/UpdatePage'
-import { RestaurantContextProvider } from './RestaurantContext'
 import AddRestPage from './routes/AddRestPage'
+import { RestaurantContextProvider } from './RestaurantContext'
 
-class App extends React.Component {
-    render(){
+
+const App = () => {
+    
         return(
-          <div> 
-          <RestaurantContextProvider>
           
+          <RestaurantContextProvider>
+          <div> 
               <Router>
                 <Switch>
                   <Route exact path="/" component={Home}/>
@@ -20,12 +21,12 @@ class App extends React.Component {
                   <Route exact path="/restaurants/:id" component={DetailPage}/>
                 </Switch>
               </Router>
-            
+              </div>
           </RestaurantContextProvider>
-          </div>
+          
           
         )
-    }
+    
 }
 
 
