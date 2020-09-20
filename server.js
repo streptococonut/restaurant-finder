@@ -11,12 +11,8 @@ const { join } = require('path');
 app.use(cors())
 
 if (process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, "client/build/")));
-    app.get('*', (req,res) => {
-        res.sendFile(path.join(__dirname, 'client/build/static/index.html'), function(err){
-            if(err){res.status(500).send(err)}
-        })
-    })
+    app.use(express.static(path.join(__dirname, "client/build")));
+
 }
 
 app.get('/restaurants', async (req, res) => {
