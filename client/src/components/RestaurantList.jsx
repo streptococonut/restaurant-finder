@@ -1,7 +1,7 @@
 import React, {  useEffect, useContext } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantContext } from '../RestaurantContext'
-
+import '../style.css'
 import LeafletMap from '../LeafletMap'
 import { useHistory } from 'react-router-dom'
 
@@ -37,44 +37,46 @@ const RestaurantList = () => {
     }
        
             return(
+                <div>
+                <div className="mycontainer">      
                 
-                <div className="d-flex justify-content-center">     
-                <div style={{margin:"2px"}}className="d-flex flex-column w-75 flex-align-stretch">
                     {
                         restaurant.map(el => {
                             return(
                                 
                                 
-                                <div style={{marginTop:"2px", minHeight:"300px"}} className="card border-primary bg-transparent" key={el.id}>
-                                <div className="card-body pl-1 pr-2 pt-2 pb-2 d-flex flex-row">
+                                <div className="mycard" key={el.id}>
                                     
-                                <div style={{minWidth:"25%", maxWidth:"25%"}} className="d-flex align-content-end flex-column text-center">
-                                <div style={{margin:"2px", fontFamily:"arial"}} className="" > 
-                                    <h3 style={{}}>
+                                <div className="inrowcolumn">
+
+
+                                <div>
+                                    <h4>
                                         {el.name}
-                                    </h3>
-                                    <br></br>
-                                    <h5>{el.location}</h5>
-                                    <br></br>
-                                    <p style={{fontSize:"0.9rem"}}><i>"{el.description}"</i></p>
+                                    </h4>
+                                    
+                                    <p style={{fontWeight:"normal"}}>{el.location}</p>
+                                    
+                                    <p style={{fontWeight:"300"}}><i>"{el.description}"</i></p>
                                 </div>
                                 
-                                <div style={{margin:"2px"}} className="d-flex align-items-end justify-content-center align-content-end">
+                                <div className="mybuttons">
+                                   
+                                    <button onClick={() => handleUpdate(el.id)} id="mybtn-upd" className="btn btn-outline-warning">Update</button>
+                                    <button onClick={() => handleDelete(el.id)} id="mybtn-del" className=" btn btn-outline-danger">Delete</button>
                                     
-                                    <button onClick={() => handleUpdate(el.id)} className="btn btn-outline-warning " style={{margin:"2px", fontSize:"1.1rem"}}>Update</button>
-                                    <button onClick={() => handleDelete(el.id)}className="btn btn-outline-danger " style={{margin:"2px", fontSize:"1.1rem"}}>Delete</button>
                                     </div>
+
+
                                     </div>
                                     
 
-                                <div style={{width:"100%"}}className="d-flex flex-align-stretch"> 
+                                <div id="lf-card" className="inrowmap"> 
                                 <LeafletMap position={el.marker} name={el.name} location={el.location}/>
                                 </div>
 
-                                    
-
-                                </div>
-                                </div>
+                                 </div>   
+                                                                
                                 
                                 )
                                 })
@@ -111,5 +113,25 @@ const RestaurantList = () => {
                                 </tr>
                                 
                                 */
+
+/* <h3 style={{}}>
+                                        {el.name}
+                                    </h3>
+                                    <br></br>
+                                    <h5>{el.location}</h5>
+                                    <br></br>
+                                    <p style={{fontSize:"0.9rem"}}><i>"{el.description}"</i></p>
+                         
+                                
+                              
+                                    
+                                    <button onClick={() => handleUpdate(el.id)} className="btn btn-outline-warning " style={{margin:"2px", fontSize:"1.1rem"}}>Update</button>
+                                    <button onClick={() => handleDelete(el.id)}className="btn btn-outline-danger " style={{margin:"2px", fontSize:"1.1rem"}}>Delete</button>
+                  
+                                    
+
+                                <div style={{width:"100%"}}className="d-flex flex-align-stretch"> 
+                                <LeafletMap position={el.marker} name={el.name} location={el.location}/>
+                                </div> */
 
 export default RestaurantList

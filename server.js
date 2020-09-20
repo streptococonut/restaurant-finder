@@ -72,9 +72,7 @@ app.delete('/restaurants/:id', async (req, res) => {
     }
 })
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build/static/index.html"))
-})
+
 
 
 

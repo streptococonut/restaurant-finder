@@ -1,6 +1,164 @@
+
 .leaflet-container {
+  height: 100%;
+  width: 100%;
+  margin: none;
+}
+#lf-all{
+  border: 0px solid #49525a;
+  border-radius: 7px;
+  overflow: hidden;
   height: 300px;
   width: 100%;
-  margin: auto;
+  box-shadow: 5px 5px 2px #6E7A87;
+  margin-bottom: 5px;
+  
 }
 
+#lf-card {
+  width: 75%;
+  min-height: 300px;
+  max-height: 100%;;
+}
+
+#lf-select {
+  height: 500px;
+  width: 75%;
+  border: 3px solid #49525a;
+  border-radius: 7px;
+  overflow: hidden;
+
+}
+
+.main{
+  background: linear-gradient(to right, #DDE0E3, #9AA3AC, #DDE0E3);
+  
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.roboto{
+  font-family: 'Roboto', sans-serif;
+}
+
+.mycontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.mycard {
+display: flex;
+width: 75%;
+border: 0px solid #49525A;
+border-radius: 7px;
+margin: 5px;
+overflow: hidden;
+background-color: #49525A;
+box-shadow: 5px 5px 2px #6E7A87;
+  
+}
+
+.inrowcolumn{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  padding: 5px;
+
+}
+
+.mybuttons{
+  justify-self: end;
+  align-items: center;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+
+.btn{
+  border-width: 2px;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  width: 75%;
+  color:#49525a;
+  font-weight:500;
+  
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .inrowcolumn {
+    width: 50%;
+  }
+  #lf-card{
+    width: 50%;
+  }
+  }
+
+#mybtn-upd{
+  background-color: #F4C27C;
+  border: #F4C27C;
+}
+
+#mybtn-del{
+  background-color: #E27D79;
+  border: #E27D79;
+}
+
+#mybtn-upd:hover{
+  background-color: #f0ad4e ;
+
+}
+
+#mybtn-del:hover{
+  background-color: #d9534f ;
+  
+}
+
+#mybtn-add-little{
+  background-color: #49525a;
+  border: #49525a;
+  color: #d1d5d9;
+}
+
+#mybtn-add-little:hover{
+  background-color: #343a40 ;
+  
+  
+}
+
+
+
+#mybtn-add{
+    color:white;
+    background-color:#49525a;
+    border-radius: 10px; 
+    margin-bottom:0px; 
+    margin-top:0px;
+    margin:5px;
+    width:75%;
+    font-weight:bold; 
+    box-shadow: 5px 5px 2px #6E7A87;
+}
+
+#mybtn-add:hover{
+  background-color: #343a40;
+  cursor: pointer;
+}
+
+.form-control{
+  border: 3px solid #343A40;
+  border-radius: 7px;
+  
+}
+
+body > #root > div {
+  height: 100vh;
+}

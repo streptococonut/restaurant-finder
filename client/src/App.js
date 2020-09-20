@@ -9,9 +9,9 @@ import AddRestPage from './routes/AddRestPage'
 class App extends React.Component {
     render(){
         return(
-          
+          <div> 
           <RestaurantContextProvider>
-          <div>
+          
               <Router>
                 <Switch>
                   <Route exact path="/" component={Home}/>
@@ -20,8 +20,9 @@ class App extends React.Component {
                   <Route exact path="/restaurants/:id" component={DetailPage}/>
                 </Switch>
               </Router>
-            </div>
+            
           </RestaurantContextProvider>
+          </div>
           
         )
     }

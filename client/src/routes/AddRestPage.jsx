@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import AddRestaurant from '../components/AddRestaurant'
 import Header from '../components/Header'
+import '../style.css'
 
 
 
-
-class AddRestPage extends Component {
-    render(){
+const AddRestPage = () => {
+    
         return(
-            <div>
+            <div className="main" style={{height:"100%"}}>
                 <Header/>
-                
-                <AddRestaurant/>
-               
+                <div>
+                <AddRestaurant id="lf-select"/>
+                </div>
             </div>
         )
-    }
+    
 }
 
 export default AddRestPage

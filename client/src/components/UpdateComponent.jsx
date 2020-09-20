@@ -77,34 +77,34 @@ const UpdateComponent = (props) => {
           }
     return(
         
-        <div className="mb-4 container">
+        <div className="mycontainer main" >
         
-            <form action="">
-            <div className="form-row">
-                <div className="col">
+            <form action="" style={{marginBottom:"10px", width:"75%"}}>
+            <div className="form-row" style={{width:"100%"}}>
+                <div className="col myinput" style={{width:"30%"}}>
                     <input value={name} onChange={e => setName(e.target.value)} type="text" className="form-control" placeholder="Name"/>
                         
                 </div>
-                <div className="col">
+                <div className="col myinput" style={{width:"30%"}}>
                     <input value={location} onChange={e => setLocation(e.target.value)} type="text" className="form-control" placeholder="Location"/>
                 </div>
-                <div className="col">
+                <div className="col myinput" style={{width:"30%"}}>
                 <input value={description} onChange={e => setDescription(e.target.value)} type="text" className="form-control" placeholder="Description"/>
                 </div>
-                <div>
-                <button onClick={handleSubmit} type="submit" className="btn btn-outline-warning" ><b>Update</b></button>
+                <div style={{width:"10%", minWidth:"100px"}}> 
+                <button onClick={handleSubmit} type="submit" id="mybtn-upd" style={{width:"100%", color:"white"}} className="btn btn-outline-warning" ><b>Update</b></button>
                 </div>
                 </div>
                 </form>
-                <br/>
+                
 
-                <div style={{width:"100%", height:"100%"}}className="leaflet">
+                <div id="lf-select">
 
                 <Map center={position} zoom={state.zoom}
       onclick={addMarker}
       >
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
       

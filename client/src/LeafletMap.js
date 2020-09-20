@@ -30,7 +30,7 @@ const LeafletMap = (props) =>  {
       <Map center={props.position ? [props.position.lat, props.position.lng] : initPosition} zoom={props.position ? state.zoomBig : state.zoomSmall}
       >
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         

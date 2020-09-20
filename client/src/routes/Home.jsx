@@ -13,20 +13,22 @@ const Home = () => {
     
         
         return(
-            <div style={{backgroundColor:"snow"}}>
+            <div className="main">
                 <Header/>
 
                 <div className="d-flex justify-content-center">
-                    <div style={{width:"75%", justifyContent:"center"}}>
+                    <div id="lf-all" style={{width:"75%", justifyContent:"center"}}>
                     <LeafletMap positions={true}/>
                     </div>
                 </div>
                 
-                <div className="text-center">   
-                    <button onClick={handleClick} type="submit" style={{marginTop:"4px", width:"75%", cursor:"pointer"}} className="btn btn-primary">Add New Restaurant</button>
+                <div className="text-center" >   
+                    <button onClick={handleClick} type="submit" id="mybtn-add"
+                    
+                    className="btn roboto" >Add New Restaurant</button>
                 </div>
-                
                 <RestaurantList/>
+                
                 
                 
                 

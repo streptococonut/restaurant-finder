@@ -7,8 +7,8 @@ const Header = () => {
             history.push("/")
         }
         return(
-            <div style={{cursor:"pointer"}} className="box" onClick={handleClick}>
-                <h1 style={{color:"snow"}} className="font-weight-light display-1 text-center bg-dark">Restaurant finder</h1>
+            <div style={{cursor:"pointer"}} onClick={handleClick}>
+                <h1 style={{color:"snow"}} className="font-weight-light display-3 text-center bg-dark">Restaurant finder</h1>
             </div>
             
         )
