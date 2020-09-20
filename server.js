@@ -10,10 +10,8 @@ const cors = require('cors');
 const { join } = require('path');
 app.use(cors())
 
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, "client/build")));
-
-}
+//if (process.env.NODE_ENV === "production"){
+  //  app.use(express.static(path.join(__dirname, "client/build")));}
 
 app.get('/restaurants', async (req, res) => {
     try {
@@ -73,7 +71,6 @@ app.delete('/restaurants/:id', async (req, res) => {
         console.log(error)
     }
 })
-
 
 
 
