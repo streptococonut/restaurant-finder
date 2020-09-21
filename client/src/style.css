@@ -27,6 +27,8 @@
   border: 3px solid #49525a;
   border-radius: 7px;
   overflow: hidden;
+  box-shadow: 5px 5px 2px #6E7A87;
+  margin-bottom: 5px;
 
 }
 
@@ -99,9 +101,18 @@ box-shadow: 5px 5px 2px #6E7A87;
   #lf-card{
     width: 50%;
   }
+  #lf-select{
+    height: 450px;
+  }
   }
 
 #mybtn-upd{
+  background-color: #F4C27C;
+  border: #F4C27C;
+  
+}
+#mybtn-upd-page{
+  box-shadow: 5px 5px 2px #6E7A87;
   background-color: #F4C27C;
   border: #F4C27C;
 }
@@ -126,6 +137,7 @@ box-shadow: 5px 5px 2px #6E7A87;
   border: #49525a;
   color: white;
   text-align: center;
+  box-shadow: 5px 5px 2px #6E7A87;
 }
 
 #mybtn-add-little:hover{
@@ -156,7 +168,7 @@ box-shadow: 5px 5px 2px #6E7A87;
 .form-control{
   border: 3px solid #49525a;
   border-radius: 7px;
-  
+  box-shadow: 5px 5px 2px #6E7A87;
 }
 
 body > #root > div {
