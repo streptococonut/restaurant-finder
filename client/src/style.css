@@ -24,7 +24,7 @@
 #lf-select {
   height: 500px;
   width: 75%;
-  border: 3px solid #49525a;
+
   border-radius: 7px;
   overflow: hidden;
   box-shadow: 5px 5px 2px #6E7A87;
@@ -166,7 +166,7 @@ box-shadow: 5px 5px 2px #6E7A87;
 }
 
 .form-control{
-  border: 3px solid #49525a;
+  border: 2px solid #49525a;
   border-radius: 7px;
   box-shadow: 5px 5px 2px #6E7A87;
 }
