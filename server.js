@@ -10,8 +10,20 @@ const cors = require('cors');
 const { join } = require('path');
 app.use(cors())
 
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, "client/build")));}
+//if (process.env.NODE_ENV === "production"){}
+app.use(express.static(path.join(__dirname, '/client/build')));
+
+
+app.get("/restaurants/add", (req, res) => {
+    try {
+        res.sendFile(path.join(__dirname, "/client/build/index.html"))
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 
 app.get('/restaurants', async (req, res) => {
     try {
@@ -20,6 +32,7 @@ app.get('/restaurants', async (req, res) => {
             restaurant: result.rows
         }
         )
+        
     } catch (error) {
         console.log(error)
     }
@@ -74,6 +87,23 @@ app.delete('/restaurants/:id', async (req, res) => {
 
 
 
+app.get("*", (req, res) => {
+    try {
+        res.sendFile(path.join(__dirname, "/client/build/index.html"))
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
+
+
+
+
+//app.get("*", (req, res) => {
+//    res.sendFile(path.join(__dirname, "/client/build/index.html"))
+//})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)

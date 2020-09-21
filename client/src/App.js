@@ -19,6 +19,7 @@ const App = () => {
                   <Route exact path="/restaurants/add" component={AddRestPage}/>
                   <Route exact path="/restaurants/:id/update" component={UpdatePage}/>
                   <Route exact path="/restaurants/:id" component={DetailPage}/>
+                  <Route path="/*" component={Home}/>
                 </Switch>
               </Router>
               </div>
