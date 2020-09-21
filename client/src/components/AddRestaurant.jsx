@@ -7,6 +7,7 @@ import L from 'leaflet'
 import {useHistory} from 'react-router-dom'
 
 
+
 //fix missing marker icon
 {delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
@@ -35,6 +36,7 @@ const AddRestaurant = (props) => {
         const handleSubmit = async (e) =>{
             e.preventDefault()
             try{
+              
                 const response = await RestaurantFinder.post('/', {
                     name: name,
                     location: location,
@@ -42,9 +44,9 @@ const AddRestaurant = (props) => {
                     //added marker (latlng)
                     marker: marker[0]
                 })
-              
+                  
+                  
                 
-                console.log(response)
                 addRestaurantToUI(response.data.restaurant)
                 history.push("/")
             }catch(err){
@@ -74,7 +76,7 @@ const AddRestaurant = (props) => {
                 <div className="col myinput">
                 <input value={description} onChange={e => setDescription(e.target.value)} type="text" className="form-control" placeholder="Description"/>
                 </div>
-                <div style={{width:"10%", minWidth:"100px"}}>
+                <div style={{width:"10%", minWidth:"60px", textAlign:"center"}}>
                 <button onClick={handleSubmit} type="submit" className="btn btn-outline-warning" style={{width:"100%"}} id="mybtn-add-little"><b>Add</b></button>
                 </div>
                 </div>

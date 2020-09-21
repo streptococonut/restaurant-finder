@@ -125,6 +125,7 @@ box-shadow: 5px 5px 2px #6E7A87;
   background-color: #49525a;
   border: #49525a;
   color: white;
+  text-align: center;
 }
 
 #mybtn-add-little:hover{

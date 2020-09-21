@@ -7,7 +7,9 @@ const AddRestPage = () => {
     
         return(
             <div className="main" style={{height:"100%"}}>
+                
                 <Header/>
+            
                 <div>
                 <AddRestaurant/>
                 </div>
